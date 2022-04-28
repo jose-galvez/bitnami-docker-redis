@@ -146,7 +146,8 @@ ensure_user_exists() {
         else
             $is_system_user && user_args+=("--system")
         fi
-        useradd "${user_args[@]}" >/dev/null 2>&1
+        # possibly `useradd "redis" >/dev/null 2>&1`
+         useradd "${user_args[@]}" >/dev/null 2>&1
     fi
 
     if [[ -n "$group" ]]; then

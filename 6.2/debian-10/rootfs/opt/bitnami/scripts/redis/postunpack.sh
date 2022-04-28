@@ -19,7 +19,8 @@ for dir in "$REDIS_VOLUME_DIR" "$REDIS_DATA_DIR" "$REDIS_BASE_DIR" "$REDIS_CONF_
 done
 chmod -R g+rwX /bitnami "$REDIS_VOLUME_DIR" "$REDIS_BASE_DIR"
 
-cp "${REDIS_BASE_DIR}/etc/redis-default.conf" "$REDIS_CONF_FILE"
+# we are copying the redis.conf file from the Dockerfile now so we don't need this
+# cp "${REDIS_BASE_DIR}/etc/redis-default.conf" "$REDIS_CONF_FILE"
 chmod g+rw "$REDIS_CONF_FILE"
 # Default Redis config
 info "Setting Redis config file..."
