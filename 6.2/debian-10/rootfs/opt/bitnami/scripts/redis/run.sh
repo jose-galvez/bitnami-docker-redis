@@ -23,8 +23,10 @@ read -r -a extra_flags <<< "$REDIS_EXTRA_FLAGS"
 args+=("$@")
 
 info "** Starting Redis **"
-if am_i_root; then
-    exec gosu "$REDIS_DAEMON_USER" redis-server "${args[@]}"
-else
-    exec redis-server "${args[@]}"
-fi
+# We don't need this check
+#if am_i_root; then
+#    exec gosu "$REDIS_DAEMON_USER" redis-server "${args[@]}"
+#else
+#    exec redis-server "${args[@]}"
+#fi
+exec redis-server "${args[@]}"
